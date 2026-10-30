@@ -1,0 +1,20 @@
+name: eagw2026-hands-on
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - numpy
+  - scipy
+  - matplotlib
+  - jupyter
+  - jupyterlab
+  - notebook
+  - astropy
+  - h5py
+  - pandas
+  - tqdm
+  - pip:
+    # Pins to be finalized by 6 Nov after starter-notebook testing.
+    # Likely additions: ligo.skymap, precession, pAGN (and Q2 light-curve helpers).
+    - precession

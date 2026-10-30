@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+</head>
+<body>
+  <header class="site-header">
+    <p class="eyebrow">EAGW2026 · Ewha Womans University · 19–21 November 2026</p>
+    <h1 class="brand"><a href="{{ '/' | relative_url }}">Hands-on Boot Camp</a></h1>
+    <p class="tagline">Binary Black Holes in AGN — GW, EM, Lensing, and Dark Matter</p>
+    {% include nav.html %}
+  </header>
+  <main class="content">
+    {{ content }}
+  </main>
+  <footer class="site-footer">
+    <p>Draft site for SOC discussion (30 Oct 2026). Workshop homepage:
+      <a href="https://sites.google.com/view/eagw2026/home">EAGW2026</a>.
+      Contact: chunglee.kim AT ewha.ac.kr</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,16 @@
+title: "EAGW2026 Hands-on"
+description: "Binary Black Holes in AGN — Hands-on Boot Camp (19–21 Nov 2026, Ewha)"
+markdown: kramdown
+plugins:
+  - jekyll-relative-links
+relative_links:
+  enabled: true
+  collections: true
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+exclude:
+  - Gemfile
+  - Gemfile.lock
