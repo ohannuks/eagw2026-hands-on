@@ -96,7 +96,7 @@ Still open in Chunglee’s 26 Oct note — draft split for discussion:
 | Q3 remnant retention | Paul | Slim PE columns + `precession` kick notebook |
 | Q4 propagation bias | Otto / Paul | Analytic notebook on common grid |
 | Q5 environmental dephasing | Otto (+ validator) | Toy acceleration term + validated gas/DM prescriptions (**model-validation gate before 13 Nov**) |
-| Repo, env file, Git prep page | Otto / Paul | This site + `environment.yml` + smoke test |
+| Repo, env file, Git prep page | Otto / Paul | This site + `uv`/`pyproject.toml` + `scripts/fetch_data.py` + smoke test |
 | Student pairing | Chunglee | Proposal by 30 Oct; assign by 6 Nov if pre-reading desired |
 | Posters / printing / dinners | Chunglee (LOC) | Templates + print booking |
 
@@ -116,7 +116,7 @@ Still open in Chunglee’s 26 Oct note — draft split for discussion:
 |---|---|
 | 23 Oct | Fix AGN catalog, event list, fiducial grid/disk model, poster size *(target from plan doc)* |
 | **30 Oct** | SOC: lock session details, work distribution, pairing proposal |
-| **6 Nov** | Publish env + repo; send pre-reading; assign teams (if agreed); slim data ready |
+| **6 Nov** | Publish `uv` env + repo; send pre-reading; assign teams (if agreed); slim data ready |
 | **13 Nov** | Starter notebooks run end-to-end; students finished Git prep; poster printing booked |
 | **18 Nov** | Offline USB/server copy; room Wi‑Fi & power check |
 | **23 Nov** | Posters printed and displayed at Yonsei |

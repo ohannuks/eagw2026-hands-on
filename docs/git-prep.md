@@ -1,159 +1,277 @@
 ---
 title: Git prep
-description: Software and git setup before the EAGW2026 Hands-on Boot Camp
+description: uv setup and official PE / skymap / ZTF data download for EAGW2026 Hands-on
 permalink: /git-prep/
 ---
 
 ## Do we need a Git prep page?
 
-**Yes.** The boot camp uses one shared repository (one directory per team), a common conda environment, and organizer-prepared slim data. Students should arrive with the environment installed and a test notebook already run, so Day 1 can start on science rather than debugging installs. Target completion: **13 November 2026**.
-
-This page is the draft checklist. Paths and package pins will be finalized when the shared environment file is published (target **6 November**).
+**Yes.** The boot camp uses one shared repository (one directory per team), a common **`uv`** environment, and official public PE samples, sky maps, and ZTF light curves. Students should arrive with the environment installed, data fetched (or the fetch script verified), and a smoke-test notebook already run, so Day 1 can start on science. Target completion: **13 November 2026**.
 
 ## 0. What you need
 
 | Requirement | Notes |
 |---|---|
-| Laptop | macOS, Linux, or Windows (WSL2 strongly preferred on Windows) |
-| Disk space | ~5–8 GB free (conda env + slim data; more if you pull optional catalogs) |
-| Accounts | [GitHub](https://github.com/) account (and GitLab/`git.ligo.org` only if we host data there) |
+| Laptop | macOS, Linux, or Windows (**WSL2** strongly preferred on Windows) |
+| Disk space | ~5–10 GB free for the `uv` env + selected events; much more if you pull full Zenodo PE releases |
+| Accounts | [GitHub](https://github.com/) (for the repo). IRSA/ZTF queries need no login for the basic light-curve API |
 | Background | Python + `numpy` / `scipy` / `matplotlib` / Jupyter basics |
 
-No HPC access is required. Google Colab / a JupyterHub mirror will be offered as fallback.
+No HPC access is required. An offline USB copy will also be available on site (by 18 Nov).
 
-## 1. Install Git (and Git LFS)
+## 1. Install Git and uv
 
 ```bash
 git --version
 ```
 
-If missing: install via [git-scm.com](https://git-scm.com/) or your package manager.
-
-Large data may use Git LFS (same pattern as the 2025 Hands-on school):
+Install **uv** (Python package/environment manager — we use it for *everything*):
 
 ```bash
-# install from https://git-lfs.com then:
+# macOS / Linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# or: https://docs.astral.sh/uv/getting-started/installation/
+uv --version
+```
+
+Optional Git LFS (only if we later store slim derivatives in-repo):
+
+```bash
 git lfs install --skip-smudge
 ```
 
-`--skip-smudge` avoids auto-downloading every LFS file on clone; pull only what your team needs.
-
-## 2. Install conda / mamba
-
-We recommend [Miniforge](https://github.com/conda-forge/miniforge) (conda-forge by default):
-
-```bash
-conda --version
-# or
-mamba --version
-```
-
-## 3. Clone the school repository
-
-Once the shared repo URL is published (this draft site’s companion repo):
+## 2. Clone the school repository
 
 ```bash
 git clone https://github.com/ohannuks/eagw2026-hands-on.git
 cd eagw2026-hands-on
 ```
 
-SSH alternative (if your GitHub SSH key is set up):
+SSH:
 
 ```bash
 git clone git@github.com:ohannuks/eagw2026-hands-on.git
+cd eagw2026-hands-on
 ```
 
-### Optional: work on a personal fork
-
-1. Fork the repository on GitHub.
-2. Clone **your fork**.
-3. Add the upstream remote so you can pull organizer updates:
+### Optional: personal fork
 
 ```bash
+# after forking on GitHub and cloning your fork:
 git remote add upstream https://github.com/ohannuks/eagw2026-hands-on.git
 git fetch upstream
-git merge upstream/main   # or: git rebase upstream/main
+git merge upstream/main
 ```
 
-## 4. Create the common environment
+## 3. Create the environment with uv
+
+From the repo root:
 
 ```bash
-conda env create -f environment.yml
-conda activate eagw2026-hands-on
+uv sync
 ```
 
-Expected core stack (exact pins TBD in `environment.yml`):
+This creates `.venv/`, installs every dependency pinned in `uv.lock` / declared in `pyproject.toml` (numpy, scipy, matplotlib, jupyter, astropy, gwosc, gwpy, ligo.skymap, pesummary, precession, zenodo-get, ztfquery, …).
 
-- Python 3.11+
-- `numpy`, `scipy`, `matplotlib`, `jupyter`, `astropy` (Planck18 cosmology)
-- `ligo.skymap` (Q1 cross-match)
-- `precession` (Q3 remnant kicks)
-- `pAGN` (common AGN disk grid; Gangardt et al. 2024)
-- team-specific helpers as needed (ZTF light-curve I/O for Q2, etc.)
-
-Update later without rebuilding from scratch:
+Update later:
 
 ```bash
-conda env update -f environment.yml --prune
+uv sync --upgrade
 ```
 
-## 5. Pull slim data (when published)
-
-Organizers will publish pre-slimmed GW sky maps, posterior columns, AGN catalog subset, and ZTF light curves **before 13 November**. Typical pattern:
+Run any tool **through uv** (do not activate conda):
 
 ```bash
-# if data are in Git LFS:
-git lfs pull -I data/common/**
-git lfs pull -I data/q1/**    # only your team’s extras
-
-# or via the helper script (to be finalized):
-bash scripts/fetch_data.sh
+uv run python -c "import numpy, astropy, gwosc; print('ok')"
+uv run jupyter lab
+# or
+uv run jupyter notebook
 ```
 
-An **offline USB / local-server copy** will also be available at Ewha (prepared by 18 November).
+## 4. Official data: PE samples, sky maps, ZTF flares
 
-## 6. Run the smoke test
+Organizers will also ship **slim** subsets under `data/` before 13 Nov. You should still know how to pull the **official** public releases yourself.
+
+Helper script (all commands via `uv run`):
 
 ```bash
-conda activate eagw2026-hands-on
-jupyter notebook notebooks/smoke_test.ipynb
-# or: jupyter lab
+uv run python scripts/fetch_data.py --help
+uv run python scripts/fetch_data.py all --events GW190521 GW231123
 ```
 
-You should be able to import the core packages and produce a trivial plot. Team starter notebooks live under `notebooks/q1` … `notebooks/q5` and must run end-to-end on a clean machine by **13 November** (organizer gate).
+Outputs go to:
 
-## 7. Git habits during the boot camp
+| Path | Contents |
+|---|---|
+| `data/pe/` | Official PE HDF5 releases |
+| `data/skymaps/` | Official PE sky-map FITS (and optional Zenodo tarballs) |
+| `data/ztf/` | ZTF light curves (IRSA CSV) for ZTF19abanrhr |
 
-- Work in your team directory: `teams/qN/` (or `notebooks/qN/` + `results/qN/`).
-- Commit often with short messages; push to your fork or team branch at checkpoints.
-- Do **not** commit multi‑GB raw catalogs or full PE sample sets — only slim derivatives and figures.
-- Prefer one notebook (or small module set) that regenerates the **representative figure**.
+### 4a. Parameter estimation samples (official)
 
-Suggested first-day commits after team pairing:
+**Preferred (per event): GWOSC Event API → HDF5 link**
+
+```bash
+uv run python scripts/fetch_data.py pe --events GW190521 GW231123
+```
+
+What this does:
+
+1. Resolves the event on the [GWOSC Event API](https://gwosc.org/eventapi/html/) (GWTC catalogs).
+2. Downloads the official PE data-release HDF5 linked from that event page.
+
+Manual alternative — open the event on GWOSC and download the PE file from the event page, e.g.:
+
+- Portal: [https://gwosc.org/eventapi/html/](https://gwosc.org/eventapi/html/)
+- Catalog docs: [GWTC-5.0](https://gwosc.org/GWTC-5.0/) (O4b / GW231123 and other GWTC-5 events)
+- GW190521 lives in earlier catalogs (GWTC-2.1 / GWTC-3); the script walks catalogs until it finds the event.
+
+**Bulk (large): Zenodo GWTC-5.0 PE data release**
+
+PE samples for GWTC-5.0 are split across two Zenodo records ([part 1](https://zenodo.org/records/20348005), [part 2](https://zenodo.org/records/20348006)):
+
+```bash
+# WARNING: full records are huge (many × 100 MB–GB HDF5 files). Prefer per-event downloads.
+uv run python scripts/fetch_data.py zenodo-pe
+# equivalent:
+uv run zenodo_get 20348005 -o data/pe/zenodo_20348005
+uv run zenodo_get 20348006 -o data/pe/zenodo_20348006
+```
+
+To pull **one** named file from Zenodo without the whole record, use the record file URL from the Zenodo page, or:
+
+```bash
+uv run zenodo_get 20348005 -g '*GW231123*' -o data/pe/zenodo_20348005
+```
+
+Read PE HDF5 with `pesummary` / `h5py`:
+
+```bash
+uv run python - <<'PY'
+from pesummary.io import read
+f = read("data/pe/GW190521_PEDataRelease.hdf5")
+print(f.labels)          # available analyses / waveform mixes
+print(list(f.samples_dict.keys())[:10])
+PY
+```
+
+### 4b. Sky maps (official)
+
+**Preferred (per event): GWOSC → FITS skymap**
+
+```bash
+uv run python scripts/fetch_data.py skymaps --events GW190521 GW231123
+```
+
+Use with `ligo.skymap`:
+
+```bash
+uv run python - <<'PY'
+from ligo.skymap.io import read_sky_map
+m, meta = read_sky_map("data/skymaps/GW190521_skymap.fits", nest=True)
+print(meta)
+PY
+```
+
+**Bulk archived skymaps (Zenodo)**
+
+```bash
+# GWTC-5.0 archived PE skymaps
+uv run python scripts/fetch_data.py skymaps --events GW231123 --bulk gwtc5
+
+# GWTC-2.1 archived PE skymaps (covers GW190521)
+uv run python scripts/fetch_data.py skymaps --events GW190521 --bulk gwtc2.1
+```
+
+Direct tarball references used by the script:
+
+| Catalog | Zenodo | Tarball |
+|---|---|---|
+| GWTC-5.0 | [20276105](https://zenodo.org/records/20276105) | `IGWN-GWTC5p0-29ebe06b7_25-Archived_Skymaps.tar.gz` |
+| GWTC-2.1 | [6513631](https://zenodo.org/records/6513631) | `IGWN-GWTC2p1-v2-PESkyMaps.tar.gz` |
+
+### 4c. ZTF flare data (official IRSA)
+
+Primary test case: **ZTF19abanrhr** associated with AGN **J124942.3+344929** (Graham et al. 2020; candidate counterpart to GW190521).
+
+**IRSA ZTF Light Curve API** (no account required for this query):
+
+```bash
+uv run python scripts/fetch_data.py ztf --object ZTF19abanrhr
+```
+
+This queries:
+
+`https://irsa.ipac.caltech.edu/cgi-bin/ZTF/nph_light_curves`  
+
+with `POS=CIRCLE <RA> <Dec> <radius>` at the AGN position (default RA = 192.426223°, Dec = +34.824839°, radius ≈ 7″) and writes `data/ztf/ZTF19abanrhr_irsa.csv`.
+
+API docs: [IRSA ZTF light-curve interface](https://irsa.ipac.caltech.edu/docs/program_interface/ztf_lightcurve_api.html).
+
+Optional broker page (metadata / public transient view): [Lasair · ZTF19abanrhr](https://lasair-ztf.lsst.ac.uk/objects/ZTF19abanrhr/).
+
+Optional same pull via `ztfquery` (still IRSA under the hood):
+
+```bash
+uv run python scripts/fetch_data.py ztf --object ZTF19abanrhr --ztfquery
+```
+
+Quick look:
+
+```bash
+uv run python - <<'PY'
+import pandas as pd
+df = pd.read_csv("data/ztf/ZTF19abanrhr_irsa.csv", comment="#")
+print(df.columns.tolist()[:20])
+print(df.head())
+PY
+```
+
+Control-sample AGN light curves for Q2 will be prepared by organizers (same IRSA API, many positions); do not scrape thousands of objects until that list is published.
+
+## 5. Run the smoke test
+
+```bash
+uv run jupyter notebook notebooks/smoke_test.ipynb
+# or: uv run jupyter lab
+```
+
+You should import the core stack and produce a trivial plot. Team starters will live under `notebooks/q1` … `notebooks/q5` and must run end-to-end by **13 November**.
+
+## 6. Git habits during the boot camp
+
+- Work in your team paths: `notebooks/qN/`, `results/qN/`.
+- Commit often; push to your fork or team branch at checkpoints.
+- Do **not** commit multi‑GB raw PE releases, full skymap tarballs, or large ZTF dumps — only slim derivatives and figures (`data/raw` style trees are gitignored).
+- Prefer one notebook (or small module) that regenerates the representative figure.
 
 ```bash
 git checkout -b team-qN
-# edit notebooks / scripts
 git add notebooks/qN results/qN
 git commit -m "Q N: science question + first sketch of figure"
 git push -u origin team-qN
 ```
 
-## 8. Troubleshooting
+## 7. Troubleshooting
 
 | Symptom | Try |
 |---|---|
-| `conda` conflicts / long solves | Use `mamba`; or create env from the frozen `environment.lock.yml` once published |
-| Windows path / compile errors | Use WSL2 Ubuntu; avoid native Windows Python for `ligo.skymap` |
-| Cannot download GWOSC / catalog files | Use the on-site offline copy; ask a tutor |
-| Git LFS quota / slow pulls | Pull only your team’s paths with `-I`; share USB data |
+| `uv` not found | Re-open the shell after install, or add `~/.local/bin` to `PATH` |
+| GWOSC timeout | Retry; or download the HDF5/FITS from the event page in a browser; or use Zenodo bulk for that catalog |
+| Zenodo too large | Download **one event file** only (`zenodo_get -g '*EVENT*'`), not the whole record |
+| `ligo.skymap` / HEALPix issues on Windows | Use WSL2 |
+| Empty IRSA CSV | Widen `--radius-deg` slightly; check RA/Dec; confirm IRSA is reachable |
+| Offline at the venue | Use the USB / local-server copy prepared by 18 Nov |
 
 <div class="note warn">
-<strong>Deadline reminder:</strong> environment installed + smoke test run by <strong>13 November</strong>. If anything fails, email the Hands-on leads before you travel so we can fix it remotely.
+<strong>Deadline:</strong> <code>uv sync</code> + smoke test + at least one successful PE/skymap/ZTF fetch (or confirmed offline copy) by <strong>13 November</strong>. Email the Hands-on leads before travel if anything fails.
 </div>
 
 ## Related links
 
-- [Sessions & plans]({{ '/sessions/' | relative_url }}) — timetable and deliverables
-- [Projects Q1–Q5]({{ '/projects/' | relative_url }}) — science questions and materials
-- 2025 precedent: [souvik-jana/hands-on-school-2025](https://github.com/souvik-jana/hands-on-school-2025) (clone + `env_setup.sh` + Git LFS pattern)
+- [Sessions & plans]({{ '/sessions/' | relative_url }})
+- [Projects Q1–Q5]({{ '/projects/' | relative_url }})
+- GWOSC: [Event portal](https://gwosc.org/eventapi/html/) · [GWTC-5.0 docs](https://gwosc.org/GWTC-5.0/)
+- Zenodo PE: [GWTC-5.0 part 1](https://zenodo.org/records/20348005) · [part 2](https://zenodo.org/records/20348006)
+- ZTF: [IRSA light-curve API](https://irsa.ipac.caltech.edu/docs/program_interface/ztf_lightcurve_api.html) · [Lasair ZTF19abanrhr](https://lasair-ztf.lsst.ac.uk/objects/ZTF19abanrhr/)

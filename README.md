@@ -4,42 +4,42 @@
 19–21 November 2026 · Ewha Womans University, Seoul  
 Satellite to [EAGW2026](https://sites.google.com/view/eagw2026/home) (Yonsei, 23–25 November)
 
-This repository hosts:
+## Website
 
-1. The **draft Hands-on website** (GitHub Pages under `docs/`)
-2. Shared **environment / notebook scaffolding** for the five project teams
-3. (Later) slim data pointers and starter notebooks
-
-## Website (draft for SOC, 30 Oct 2026)
-
-Once Pages is enabled: `https://ohannuks.github.io/eagw2026-hands-on/`
+https://ohannuks.github.io/eagw2026-hands-on/
 
 | Page | Purpose |
 |---|---|
-| [Home](docs/index.md) | Hands-on homepage sketch |
-| [Git prep](docs/git-prep.md) | Student software + git setup before 13 Nov |
-| [Sessions & plans](docs/sessions.md) | Timetable + work distribution summary from meeting notes |
+| [Home](docs/index.md) | Hands-on homepage |
+| [Git prep](docs/git-prep.md) | **`uv` setup** + official PE / skymap / ZTF download instructions |
+| [Sessions & plans](docs/sessions.md) | Timetable and work distribution |
 | [Projects Q1–Q5](docs/projects.md) | Science questions, materials, fallbacks |
 
-## Quick start (students)
-
-See **[Git prep](https://ohannuks.github.io/eagw2026-hands-on/git-prep/)** (or `docs/git-prep.md`). Short version:
+## Quick start (students) — all via `uv`
 
 ```bash
+# install uv: https://docs.astral.sh/uv/getting-started/installation/
 git clone https://github.com/ohannuks/eagw2026-hands-on.git
 cd eagw2026-hands-on
-conda env create -f environment.yml
-conda activate eagw2026-hands-on
-jupyter notebook notebooks/smoke_test.ipynb
+uv sync
+
+# official PE samples + sky maps + ZTF19abanrhr light curve
+uv run python scripts/fetch_data.py all --events GW190521 GW231123
+
+uv run jupyter notebook notebooks/smoke_test.ipynb
 ```
+
+Full detail: **[Git prep](https://ohannuks.github.io/eagw2026-hands-on/git-prep/)**.
 
 ## Repository layout
 
 ```
-docs/           # GitHub Pages site
-notebooks/q1–q5 # Starter notebooks (to be filled)
-materials/      # Templates, reading lists
-environment.yml # Common conda environment
+docs/               # GitHub Pages site
+scripts/fetch_data.py
+pyproject.toml      # uv project / dependencies
+notebooks/q1–q5     # Starter notebooks (to be filled)
+data/               # Downloaded PE, skymaps, ZTF (gitignored raw)
+materials/          # Templates, reading lists
 ```
 
 ## Contacts

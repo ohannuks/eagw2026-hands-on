@@ -10,6 +10,7 @@ permalink: /projects/
 - **Common events:** **GW190521** (all teams where applicable); **GW231123** for Q3 & Q4.
 - **Cosmology:** Planck18 (`astropy`).
 - **Catalog:** GWTC-5.0 / GWOSC for GW data; Quaia recommended for Q1; ZTF light curves for Q2.
+- **Fetch official data with `uv`:** see [Git prep]({{ '/git-prep/' | relative_url }}) and `uv run python scripts/fetch_data.py --help`.
 - **Undergrad-friendly:** Q3 and Q4 preferred for undergraduate members (short code path / analytic).
 
 Full write-up: organizer planning doc (Google Doc circulated by Chunglee, 7 Oct).

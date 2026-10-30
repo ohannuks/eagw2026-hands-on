@@ -39,7 +39,7 @@ Details: [Projects Q1–Q5]({{ '/projects/' | relative_url }}) · day-by-day pla
 
 ## Before you arrive
 
-1. Complete the **[Git prep]({{ '/git-prep/' | relative_url }})** (install tools, clone the repo, run the test notebook) by **13 November**.
+1. Complete the **[Git prep]({{ '/git-prep/' | relative_url }})** (`uv sync`, fetch official PE / skymaps / ZTF data, run the smoke-test notebook) by **13 November**.
 2. Read the 2–3 key papers for your assigned project (list to be sent with team assignments, target **6 November**).
 3. Bring a laptop with working Wi‑Fi; an offline USB copy of data/environment will also be available on site.
 
