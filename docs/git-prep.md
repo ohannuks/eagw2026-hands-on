@@ -4,7 +4,7 @@ description: Student setup — uv environment and official PE / skymap / ZTF dat
 permalink: /git-prep/
 ---
 
-Complete these steps before the boot camp so Day 1 can start on science. Finish by **13 November 2026**: install the shared **`uv`** environment, fetch (or verify) the official PE samples, sky maps, and ZTF light curves, and run the smoke-test notebook.
+Complete these steps before the hands-on school so Day 1 can start on science. Finish by **13 November 2026**: install the shared **`uv`** environment, fetch (or verify) the official PE samples, sky maps, and ZTF light curves, and run the first-light notebook.
 
 ## 0. What you need
 
@@ -226,29 +226,35 @@ print(df.head())
 PY
 ```
 
-Control-sample AGN light curves for Q2 will be prepared by organizers (same IRSA API, many positions); do not scrape thousands of objects until that list is published.
-
-## 5. Run the smoke test
+## 5. Run first light and the plotting exercises
 
 ```bash
-uv run jupyter notebook notebooks/smoke_test.ipynb
+uv run jupyter notebook notebooks/first_light.ipynb
 # or: uv run jupyter lab
 ```
 
-You should import the core stack and produce a trivial plot. Team starters will live under `notebooks/q1` … `notebooks/q5` and must run end-to-end by **13 November**.
+You should import the core stack and produce a trivial plot. Then work through the **[plotting exercises]({{ '/exercises/' | relative_url }})** (fetch GW + ZTF data and plot):
 
-## 6. Git habits during the boot camp
+```bash
+uv run jupyter notebook notebooks/exercises/01_fetch_plot_gw.ipynb
+uv run jupyter notebook notebooks/exercises/02_fetch_plot_ztf.ipynb
+uv run jupyter notebook notebooks/exercises/03_overlay_ztf_on_skymap.ipynb
+```
 
-- Work in your team paths: `notebooks/qN/`, `results/qN/`.
+Finish first light and at least Exercises 1–2 by **13 November**.
+
+## 6. Git habits during the hands-on school
+
+- Keep analysis notebooks under `notebooks/` and figures under `results/`.
 - Commit often; push to your fork or team branch at checkpoints.
-- Do **not** commit multi‑GB raw PE releases, full skymap tarballs, or large ZTF dumps — only slim derivatives and figures (`data/raw` style trees are gitignored).
+- Do **not** commit multi‑GB raw PE releases, full skymap tarballs, or large ZTF dumps — only slim derivatives and figures (`data/` raw trees are gitignored).
 - Prefer one notebook (or small module) that regenerates the representative figure.
 
 ```bash
-git checkout -b team-qN
-git add notebooks/qN results/qN
-git commit -m "Q N: science question + first sketch of figure"
-git push -u origin team-qN
+git checkout -b team-work
+git add notebooks results
+git commit -m "First sketch of ZTF–GW figure"
+git push -u origin team-work
 ```
 
 ## 7. Troubleshooting
@@ -263,13 +269,13 @@ git push -u origin team-qN
 | Offline at the venue | Use the USB / local-server copy prepared by 18 Nov |
 
 <div class="note warn">
-<strong>Deadline:</strong> <code>uv sync</code> + smoke test + at least one successful PE/skymap/ZTF fetch (or confirmed offline copy) by <strong>13 November</strong>. Email the Hands-on leads before travel if anything fails.
+<strong>Deadline:</strong> <code>uv sync</code> + first light + at least one successful PE/skymap/ZTF fetch (or confirmed offline copy) by <strong>13 November</strong>. Email the Hands-on leads before travel if anything fails.
 </div>
 
 ## Related links
 
 - [Sessions & plans]({{ '/sessions/' | relative_url }})
-- [Projects Q1–Q5]({{ '/projects/' | relative_url }})
+- [Plotting exercises]({{ '/exercises/' | relative_url }})
 - GWOSC: [Event portal](https://gwosc.org/eventapi/html/) · [GWTC-5.0 docs](https://gwosc.org/GWTC-5.0/)
 - Zenodo PE: [GWTC-5.0 part 1](https://zenodo.org/records/20348005) · [part 2](https://zenodo.org/records/20348006)
 - ZTF: [IRSA light-curve API](https://irsa.ipac.caltech.edu/docs/program_interface/ztf_lightcurve_api.html) · [Lasair ZTF19abanrhr](https://lasair-ztf.lsst.ac.uk/objects/ZTF19abanrhr/)

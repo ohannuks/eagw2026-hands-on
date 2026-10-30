@@ -1,12 +1,12 @@
 ---
 title: Home
-description: Hands-on Boot Camp for EAGW2026
+description: Hands-on School for EAGW2026
 permalink: /
 ---
 
-## Hands-on Boot Camp
+## Hands-on School
 
-Three-day boot camp at Ewha (19–21 November 2026), ahead of the [EAGW2026 workshop](https://sites.google.com/view/eagw2026/home) at Yonsei (23–25 November).
+Three-day hands-on school at Ewha (19–21 November 2026), ahead of the [EAGW2026 workshop](https://sites.google.com/view/eagw2026/home) at Yonsei (23–25 November).
 
 | | |
 |---|---|
@@ -17,31 +17,30 @@ Three-day boot camp at Ewha (19–21 November 2026), ahead of the [EAGW2026 work
 
 ## Goal
 
-Initiate a collaborative research project on observational signatures of **binary black hole (BBH) mergers in active galactic nuclei (AGN)**.
+Start a collaborative project that **cross-correlates ZTF optical flares with gravitational-wave events** to test whether binary black hole mergers prefer the **AGN channel**.
 
-Each team answers one focused science question and produces **one quantitative result** and **one main figure** during the boot camp. The five results become posters at EAGW2026 and the starting point for a joint paper through February 2027.
+Principal case study: **GW190521** and the ZTF flare **ZTF19abanrhr** (AGN J124942.3+344929). Teams produce quantitative results and figures during the hands-on school, present posters at EAGW2026, and feed a joint paper through February 2027.
 
-**Combined paper theme:** *Multi-messenger diagnostics of the AGN channel for binary black hole mergers.*
+**Paper theme:** *Cross-correlating ZTF flares with gravitational waves to probe the AGN channel for BBH mergers.*
 
-## The five diagnostics
+## Plotting exercises
 
-| ID | Diagnostic | Guiding question |
+Before the school, fetch real data and make example plots:
+
+| # | Topic | Notebook |
 |---|---|---|
-| Q1 | Spatial | Are BBH mergers spatially associated with AGN? |
-| Q2 | Electromagnetic | Are candidate optical flares statistically significant? |
-| Q3 | Remnant | Can merger remnants be retained in dense nuclear environments and AGN disks? |
-| Q4 | Propagation | How does a central SMBH modify the observed GW signal? |
-| Q5 | Environmental | Can gas, SMBH acceleration, and dark matter produce distinguishable GW phase corrections? |
+| 1 | GW strain + sky map | `notebooks/exercises/01_fetch_plot_gw.ipynb` |
+| 2 | ZTF light curve | `notebooks/exercises/02_fetch_plot_ztf.ipynb` |
+| 3 | Overlay ZTF on the GW map | `notebooks/exercises/03_overlay_ztf_on_skymap.ipynb` |
 
-Common thread: one fiducial AGN model ([pAGN](https://arxiv.org/abs/2403.00060)), shared test events (**GW190521**, plus **GW231123** for Q3/Q4), and a combined diagnostic map in the \((M_\mathrm{SMBH},\, r/R_g)\) plane.
-
-Details: [Projects Q1–Q5]({{ '/projects/' | relative_url }}) · day-by-day plan: [Sessions & plans]({{ '/sessions/' | relative_url }}).
+Full instructions: **[Plotting exercises]({{ '/exercises/' | relative_url }})** · timetable: [Sessions & plans]({{ '/sessions/' | relative_url }}).
 
 ## Before you arrive
 
-1. Complete the **[Git prep]({{ '/git-prep/' | relative_url }})** (`uv sync`, fetch official PE / skymaps / ZTF data, run the smoke-test notebook) by **13 November**.
-2. Read the 2–3 key papers for your assigned project (list to be sent with team assignments, target **6 November**).
-3. Bring a laptop with working Wi‑Fi; an offline USB copy of data/environment will also be available on site.
+1. Complete the **[Git prep]({{ '/git-prep/' | relative_url }})** (`uv sync`, fetch data, first-light notebook) by **13 November**.
+2. Work through the **[plotting exercises]({{ '/exercises/' | relative_url }})** (at least Exercises 1–2).
+3. Read the 2–3 key papers (list to be sent with team assignments, target **6 November**).
+4. Bring a laptop with working Wi‑Fi; an offline USB copy of data/environment will also be available on site.
 
 ## Logistics
 
@@ -49,6 +48,6 @@ Details: [Projects Q1–Q5]({{ '/projects/' | relative_url }}) · day-by-day pla
 - **Thursday dinner:** provided by Ewha for all Hands-on participants (informal discussion evening).
 - **Posters:** draft PDF by Sat 20:00 to Chunglee; printing Mon 23 Nov (Fuji Xerox, Ewha ECC); sparkler talks Tue 24 Nov morning at Yonsei.
 
-## Organizers
+## Contacts
 
-Otto Hannuksela, Paul Martens, Surojit Saha, Albert Kong (Hands-on content) · Chunglee Kim, Jun Gyu Park (LOC) · Keiko Kokeyama and the full EAGW SOC.
+Otto Hannuksela, Chunglee Kim, Keiko Kokeyama, Albert Kong, Paul Martens, Jun Gyu Park, Surojit Saha · chunglee.kim AT ewha.ac.kr

@@ -52,7 +52,7 @@ Timetable: [Hands-on sheet](https://docs.google.com/spreadsheets/d/12JaxNLvRpcNQ
 | ~13:00–14:00 window | **Progress check** (~10 min/team): calculated so far, current figure, main blocker, plan for rest of day |
 | 17:00–18:00 | Checkpoint presentations |
 
-**Day‑2 gate:** interpretable first version of the representative figure; otherwise switch to the project **fallback** immediately.
+**Day‑2 gate:** interpretable first version of the representative figure.
 
 ### Saturday 21 November — wrap & posters
 
@@ -89,8 +89,8 @@ Timetable: [Hands-on sheet](https://docs.google.com/spreadsheets/d/12JaxNLvRpcNQ
 
 | Deadline | What |
 |---|---|
-| **6 Nov** | Team assignments and pre-reading (if sent before camp) |
-| **13 Nov** | Finish [Git prep]({{ '/git-prep/' | relative_url }}) (`uv sync`, data fetch, smoke test) |
+| **6 Nov** | Team assignments and pre-reading (if sent before the school) |
+| **13 Nov** | Finish [Git prep]({{ '/git-prep/' | relative_url }}) and [plotting exercises]({{ '/exercises/' | relative_url }}) 1–2 |
 | **18 Nov** | Optional: Otto colloquium at Ewha (17:00); offline USB copy available on site |
 | **21 Nov** | Final poster PDF to Chunglee by 20:00 |
 | **23–24 Nov** | Posters at Yonsei; sparkler talks Tuesday morning |

@@ -1,7 +1,7 @@
 [project]
 name = "eagw2026-hands-on"
 version = "0.1.0"
-description = "EAGW2026 Hands-on Boot Camp — BBHs in AGN"
+description = "EAGW2026 Hands-on — cross-correlate ZTF flares with GWs (AGN channels)"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
