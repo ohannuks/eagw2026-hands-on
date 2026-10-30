@@ -1,19 +1,10 @@
 ---
 title: Sessions & plans
-description: Organized summary of Hands-on session topics and plans from SOC meetings
+description: Hands-on timetable, day-by-day plan, and team deliverables
 permalink: /sessions/
 ---
 
-## Source of this summary
-
-Compiled for the **30 October 2026** SOC catch-up from:
-
-- Chunglee’s Hands-on planning doc (*BBHs in AGN* boot-camp plan)
-- Hands-on timetable sheet (final version after the **23 Oct** meeting with Shigeo)
-- Full Hands-on & Workshop programme sheet
-- Email updates (24–26 Oct): 10 students / 5 teams; Thursday dinner; pairing senior+junior
-
-Timetable link (Hands-on only): [Google Sheet](https://docs.google.com/spreadsheets/d/12JaxNLvRpcNQ_qIGdwnMcD049bSnEth6SEVL4D1qmEQ/edit?gid=0#gid=0) · Full programme: [Sheet](https://docs.google.com/spreadsheets/d/1Dlgk_mWkpP3toVem5OQdpyeOSyoFWCkDW82tiIAxzkc/edit?gid=577262258#gid=577262258)
+Timetable: [Hands-on sheet](https://docs.google.com/spreadsheets/d/12JaxNLvRpcNQ_qIGdwnMcD049bSnEth6SEVL4D1qmEQ/edit?gid=0#gid=0) · Full programme: [Sheet](https://docs.google.com/spreadsheets/d/1Dlgk_mWkpP3toVem5OQdpyeOSyoFWCkDW82tiIAxzkc/edit?gid=577262258#gid=577262258)
 
 ## At a glance
 
@@ -42,10 +33,10 @@ Timetable link (Hands-on only): [Google Sheet](https://docs.google.com/spreadshe
 | 12:00–13:30 | Lunch | Campus cafeteria together (self-pay) |
 | 13:30–14:30 / 14:30–15:00 | **Lecture 2** — GW astrophysics & data | Paul Martens |
 | 15:30–16:00 | Coffee | |
-| 16:00–16:30 | Albert mini-tutorial (ZTF / S190521g light curves; optional) | Albert arrives ICN ~11:20 → afternoon only |
+| 16:00–16:30 | Albert mini-tutorial (ZTF / S190521g light curves; optional) | Afternoon |
 | 16:30–17:00 | Presentation | Donniel Cruz |
-| 17:00–18:00 | Team pairing & quick discussion | Senior+junior pairing (Chunglee proposal by 30 Oct) |
-| 18:00–19:30 | **Dinner with all participants** (Ewha-provided) | Informal science discussion (Albert’s request) |
+| 17:00–18:00 | Team pairing & quick discussion | Senior + junior pairing |
+| 18:00–19:30 | **Dinner with all participants** (Ewha-provided) | Informal science discussion |
 
 **Day‑1 gate (by 18:00):** each team submits science question, minimum deliverable, calculation/data required, and proposed representative figure.
 
@@ -81,24 +72,8 @@ Timetable link (Hands-on only): [Google Sheet](https://docs.google.com/spreadshe
 |---|---|
 | Sun 22 / Mon 23 | Poster printing; CK pick-up Fuji Xerox ECC ~11:00 Mon; posters up at Yonsei before 13:00 |
 | Mon 23 morning | Optional school satellite: results recap & paper-writing plan |
-| Tue 24 morning | Poster sparkler session (5 teams × ~5 min; chairs TBD: Paul & Surojit?) |
+| Tue 24 morning | Poster sparkler session (5 teams × ~5 min) |
 | Tue/Wed 24–25 | Feedback during poster sessions; final 1‑hour project meeting to lock extensions |
-
-## Work distribution (proposed for 30 Oct discussion)
-
-Still open in Chunglee’s 26 Oct note — draft split for discussion:
-
-| Area | Suggested lead(s) | Deliverable before camp |
-|---|---|---|
-| Common AGN grid + `pAGN` notebooks | Paul / Otto | Fiducial \((M, r/R_g)\) grid + disk profiles |
-| Q1 spatial / skymaps | Surojit (+ Otto) | Slim sky maps + AGN catalog subset + starter cross-match notebook |
-| Q2 EM / ZTF flares | Albert (+ Paul) | Cleaned ZTF19abanrhr + control sample + starter notebook; Albert tutorial Thu afternoon |
-| Q3 remnant retention | Paul | Slim PE columns + `precession` kick notebook |
-| Q4 propagation bias | Otto / Paul | Analytic notebook on common grid |
-| Q5 environmental dephasing | Otto (+ validator) | Toy acceleration term + validated gas/DM prescriptions (**model-validation gate before 13 Nov**) |
-| Repo, env file, Git prep page | Otto / Paul | This site + `uv`/`pyproject.toml` + `scripts/fetch_data.py` + smoke test |
-| Student pairing | Chunglee | Proposal by 30 Oct; assign by 6 Nov if pre-reading desired |
-| Posters / printing / dinners | Chunglee (LOC) | Templates + print booking |
 
 ## Common deliverables (every team)
 
@@ -110,21 +85,12 @@ Still open in Chunglee’s 26 Oct note — draft split for discussion:
 6. Main limitation  
 7. Paper-extension plan  
 
-## Organizer preparation timeline
+## Key dates for students
 
-| Deadline | Task |
+| Deadline | What |
 |---|---|
-| 23 Oct | Fix AGN catalog, event list, fiducial grid/disk model, poster size *(target from plan doc)* |
-| **30 Oct** | SOC: lock session details, work distribution, pairing proposal |
-| **6 Nov** | Publish `uv` env + repo; send pre-reading; assign teams (if agreed); slim data ready |
-| **13 Nov** | Starter notebooks run end-to-end; students finished Git prep; poster printing booked |
-| **18 Nov** | Offline USB/server copy; room Wi‑Fi & power check |
-| **23 Nov** | Posters printed and displayed at Yonsei |
-
-## Open points for 30 Oct
-
-1. Exact titles/durations for Lecture 1–2 and whether Albert’s ZTF tutorial is in the formal timetable.  
-2. Confirm work distribution and who validates Q4/Q5 formulae (model-validation gate).  
-3. Confirm team assignment date (before camp vs Day 1).  
-4. Poster template size and shared plotting style.  
-5. Whether Hands-on homepage stays on GitHub Pages, Google Sites “Hands-on” tab, or both (link from [EAGW2026](https://sites.google.com/view/eagw2026/home)).
+| **6 Nov** | Team assignments and pre-reading (if sent before camp) |
+| **13 Nov** | Finish [Git prep]({{ '/git-prep/' | relative_url }}) (`uv sync`, data fetch, smoke test) |
+| **18 Nov** | Optional: Otto colloquium at Ewha (17:00); offline USB copy available on site |
+| **21 Nov** | Final poster PDF to Chunglee by 20:00 |
+| **23–24 Nov** | Posters at Yonsei; sparkler talks Tuesday morning |

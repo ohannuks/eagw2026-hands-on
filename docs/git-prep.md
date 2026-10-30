@@ -1,12 +1,10 @@
 ---
 title: Git prep
-description: uv setup and official PE / skymap / ZTF data download for EAGW2026 Hands-on
+description: Student setup — uv environment and official PE / skymap / ZTF data download
 permalink: /git-prep/
 ---
 
-## Do we need a Git prep page?
-
-**Yes.** The boot camp uses one shared repository (one directory per team), a common **`uv`** environment, and official public PE samples, sky maps, and ZTF light curves. Students should arrive with the environment installed, data fetched (or the fetch script verified), and a smoke-test notebook already run, so Day 1 can start on science. Target completion: **13 November 2026**.
+Complete these steps before the boot camp so Day 1 can start on science. Finish by **13 November 2026**: install the shared **`uv`** environment, fetch (or verify) the official PE samples, sky maps, and ZTF light curves, and run the smoke-test notebook.
 
 ## 0. What you need
 

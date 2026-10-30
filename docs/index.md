@@ -1,12 +1,12 @@
 ---
 title: Home
-description: Hands-on Boot Camp homepage draft for EAGW2026
+description: Hands-on Boot Camp for EAGW2026
 permalink: /
 ---
 
-## About this page
+## Hands-on Boot Camp
 
-This is a **draft Hands-on homepage** prepared for the 30 October SOC discussion, as requested by Chunglee. It sits next to the official [EAGW2026 workshop site](https://sites.google.com/view/eagw2026/home) and focuses on the three-day boot camp at Ewha (19–21 November 2026).
+Three-day boot camp at Ewha (19–21 November 2026), ahead of the [EAGW2026 workshop](https://sites.google.com/view/eagw2026/home) at Yonsei (23–25 November).
 
 | | |
 |---|---|
@@ -43,16 +43,12 @@ Details: [Projects Q1–Q5]({{ '/projects/' | relative_url }}) · day-by-day pla
 2. Read the 2–3 key papers for your assigned project (list to be sent with team assignments, target **6 November**).
 3. Bring a laptop with working Wi‑Fi; an offline USB copy of data/environment will also be available on site.
 
-## Logistics (from LOC updates)
+## Logistics
 
 - **Lunch:** campus cafeteria on Thursday (self-pay, &lt; USD 10); Ewha provides lunch on Friday. Saturday lunch not provided (nearby campus eateries).
 - **Thursday dinner:** provided by Ewha for all Hands-on participants (informal discussion evening).
 - **Posters:** draft PDF by Sat 20:00 to Chunglee; printing Mon 23 Nov (Fuji Xerox, Ewha ECC); sparkler talks Tue 24 Nov morning at Yonsei.
 
-## Organizers (Hands-on lead + SOC)
+## Organizers
 
 Otto Hannuksela, Paul Martens, Surojit Saha, Albert Kong (Hands-on content) · Chunglee Kim, Jun Gyu Park (LOC) · Keiko Kokeyama and the full EAGW SOC.
-
-<div class="note">
-<strong>Status:</strong> draft for SOC review. Timetable is the “final version” from the 23 Oct meeting; session-level lecture titles and work distribution still to be locked on 30 Oct / early November.
-</div>

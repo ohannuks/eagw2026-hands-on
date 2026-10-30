@@ -13,8 +13,6 @@ permalink: /projects/
 - **Fetch official data with `uv`:** see [Git prep]({{ '/git-prep/' | relative_url }}) and `uv run python scripts/fetch_data.py --help`.
 - **Undergrad-friendly:** Q3 and Q4 preferred for undergraduate members (short code path / analytic).
 
-Full write-up: organizer planning doc (Google Doc circulated by Chunglee, 7 Oct).
-
 ---
 
 ## Q1 — Spatial diagnostic
@@ -85,7 +83,7 @@ Full write-up: organizer planning doc (Google Doc circulated by Chunglee, 7 Oct)
 
 **Question.** How do AGN gas interaction, centre-of-mass acceleration in the SMBH potential, and a dark-matter spike modify the GW inspiral phase of a stellar-mass BBH?
 
-**Boot-camp method.** Organizer-validated toy prescriptions for (1) gas drag/torque on the **inner** binary, (2) LOS CoM acceleration \(GM_\mathrm{SMBH}/r^2\), (3) DM-spike term with checked force law. Compute \(\Delta\Phi(f)\) in LVK and LISA bands (~1 rad as order-of-magnitude reference only). Do **not** copy EMRI formulae onto the stellar-mass binary without a justified mapping.
+**Boot-camp method.** Use the provided toy prescriptions for (1) gas drag/torque on the **inner** binary, (2) LOS CoM acceleration \(GM_\mathrm{SMBH}/r^2\), (3) DM-spike term with checked force law. Compute \(\Delta\Phi(f)\) in LVK and LISA bands (~1 rad as order-of-magnitude reference only). Do **not** copy EMRI formulae onto the stellar-mass binary without a justified mapping.
 
 **Materials.** Common grid, disk densities, one DM spike profile; vacuum evolution + worked acceleration notebook.
 
@@ -93,12 +91,10 @@ Full write-up: organizer planning doc (Google Doc circulated by Chunglee, 7 Oct)
 
 **Fallback.** Acceleration + one validated gas term; or acceleration-only scaling study with documentation if other terms are not validated in time.
 
-**Validation gate.** Senior researchers for Q4/Q5 confirm formulae apply to the intended system **before 13 November**.
-
 **Key refs.** Barausse, Cardoso & Pani 2014; Inayoshi et al. 2017; Yunes et al. 2011; Eda et al. 2013; Kavanagh et al. 2020.
 
 ---
 
 ## After the boot camp
 
-Combined diagnostic map + GW190521 case study; extension milestones through **late February 2027** (see planning doc). Paper-scope gate after EAGW2026 decides which diagnostics enter the joint manuscript.
+Combined diagnostic map + GW190521 case study; extension milestones through **late February 2027**. After EAGW2026 we decide which diagnostics enter the joint manuscript.
